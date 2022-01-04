@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This a small project for learning purposes, to understand Ruby on Rails basics; it covers all steps in Rails Guides Getting stated section (https://guides.rubyonrails.org)
 
-Things you may want to cover:
+Versions:
 
-* Ruby version
+- Ruby 3.0.3
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Rails 7.0.0

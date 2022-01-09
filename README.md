@@ -4,6 +4,6 @@ This a small project for learning purposes, to understand Ruby on Rails basics; 
 
 Versions:
 
-- Ruby 3.0.3
+- Ruby 3.1.0
 
-- Rails 7.0.0
+- Rails 7.0.1

@@ -10,10 +10,17 @@
   <div><%= @article.body %></div>
   <div class="mt-5 field is-grouped">
     <div class="control">
-      <%= link_to "Edit", edit_article_path, class: "button is-warning is-light" %>
+      <%= link_to "Edit", edit_article_path(@article), class: "button is-warning is-light" %>
     </div>
     <div class="control">
       <%= link_to "Back", articles_path, class: "button is-light" %>
+    </div>
+    <div class="control">
+      <%= link_to "Delete", article_path(@article), data: {
+          turbo_method: :delete, 
+          turbo_confirm: "The article will be deleted. Are you sure?"
+          }, 
+          class: "button is-danger is-light" %>
     </div>
   </div>
 </div>

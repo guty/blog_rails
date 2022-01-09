@@ -1,4 +1,4 @@
-<%= form_with model: article do |form| %>
+<%= form_with model: article, id: "edit-article" do |form| %>
   <div class="field">
     <%= form.label :title, class: "label" %><br>
     <%= form.text_field :title, class: "input" %>
@@ -15,10 +15,14 @@
   </div>
   <div class="field is-grouped">
     <div class="control">
-      <%= form.submit locals[:submit_label], disable_with: 'Submiting...', class: locals[:style] %>
+      <%= button_tag type: 'submit', form:"edit-article", class: locals[:style], disable_with: 'Submiting...' do %>
+        <i class="fa fa-plus-circle" aria-hidden="true"> </i>&nbsp;<%= locals[:submit_label]%>
+      <% end %>
     </div>
     <div class="control">
-      <%= link_to locals[:cancel_label], locals[:path], class: "button is-light" %>
+      <%= link_to locals[:path], class: "button is-light" do %>
+        <i class="fa fa-arrow-left" aria-hidden="true"> </i>&nbsp;<%= locals[:cancel_label]%>
+      <% end %>
     </div>
   </div>
 <% end %>

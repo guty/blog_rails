@@ -1,26 +1,33 @@
-<section class="hero">
-  <div class="hero-body">
-    <p class="title">
-      <%=@article.title%>
-    </p>
-  </div>
-</section>
 <div class="column is-10 is-offset-1">
-  <h1><%=@article.title%></h1>
+  <h1 class="is-size-3"><%=@article.title%></h1>
   <div><%= @article.body %></div>
+</div>
+<div class="column is-4 is-offset-8">
   <div class="mt-5 field is-grouped">
     <div class="control">
-      <%= link_to "Edit", edit_article_path(@article), class: "button is-warning is-light" %>
+      <%= link_to edit_article_path(@article), class: "button is-warning is-light" do %>
+        <i class="fa fa-edit" aria-hidden="true"> </i>&nbsp;Edit
+      <% end %>
     </div>
     <div class="control">
-      <%= link_to "Back", articles_path, class: "button is-light" %>
+      <%= link_to articles_path, class: "button is-light" do %>
+        <i class="fa fa-arrow-left" aria-hidden="true"> </i>&nbsp;Back
+      <% end %>
     </div>
     <div class="control">
-      <%= link_to "Delete", article_path(@article), data: {
-          turbo_method: :delete, 
+      <%= link_to article_path(@article), data: {
+          turbo_method: :delete,
           turbo_confirm: "The article will be deleted. Are you sure?"
-          }, 
-          class: "button is-danger is-light" %>
+          },
+          class: "button is-danger is-light" do %>
+        <i class="fa fa-minus-circle" aria-hidden="true"> </i>&nbsp;Delete
+      <% end %>
     </div>
   </div>
 </div>
+<div class="column is-10 is-offset-1">
+  <h2 class="is-size-4 mb-3">Comments</h2>
+  <p class="is-size-5 mb-2"><span class="has-text-weight-bold"><%= @article.comments.size%></span> comments</p>
+  <%= render @article.comments %>
+</div>
+<%= render "comments/form" %>

@@ -1,0 +1,20 @@
+<div class="column is-10 is-offset-1 mt-3 mb-3">
+  <h2 class="is-size-4 mb-3">Leave a comment</h2>
+  <%= form_with model: [@article, @article.comments.build], id: "new-comment" do |form| %>
+    <div class="field">
+      <%= form.label :commenter, class: "label" %><br>
+      <%= form.text_field :commenter, class: "input" %>
+    </div>
+    <div class="field">
+      <%= form.label :body, class: "label" %><br>
+      <%= form.text_area :body, class: "textarea" %>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <%= button_tag type: 'submit', form:"new-comment", class: "button is-primary is-light", disable_with: 'Submiting...', id: "submit-comment-button" do %>
+          <i class="fa fa-comments" aria-hidden="true"> </i>&nbsp;Submit comment
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

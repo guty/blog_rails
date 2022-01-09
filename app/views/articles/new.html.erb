@@ -1,0 +1,10 @@
+<section class="hero">
+  <div class="hero-body">
+    <p class="title">
+      Add a new Article
+    </p>
+  </div>
+</section>
+<div class="column is-three-fifths is-offset-one-fifth">
+  <%= render "articles/partials/form", article: @article, locals: {path: articles_path, submit_label: "Create Article", style: "button is-info is-light", cancel_label: "Back"} %>
+</div>

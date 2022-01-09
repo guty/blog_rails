@@ -1,2 +1,19 @@
-<h1><%=@article.title%></h1>
-<p><%= @article.body %></p>
+<section class="hero">
+  <div class="hero-body">
+    <p class="title">
+      <%=@article.title%>
+    </p>
+  </div>
+</section>
+<div class="column is-10 is-offset-1">
+  <h1><%=@article.title%></h1>
+  <div><%= @article.body %></div>
+  <div class="mt-5 field is-grouped">
+    <div class="control">
+      <%= link_to "Edit", edit_article_path, class: "button is-warning is-light" %>
+    </div>
+    <div class="control">
+      <%= link_to "Back", articles_path, class: "button is-light" %>
+    </div>
+  </div>
+</div>

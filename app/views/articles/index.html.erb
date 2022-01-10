@@ -1,14 +1,26 @@
 <div class="column is-10 is-offset-1">
   <h1 class="is-size-3 has-text-weight-bold">All Articles</h1>
+  <span class="is-size-53">
+    At this moment the blog has <span class="has-text-weight-bold"><%= Article.public_count %>
+      published articles</span>. Can you believe it?
+  </span>
+</div>
+<div class="columns">
+  <div class="column is-four-fifths is-offset-one-fifth">
+    <% @articles.each do |article| %>
+      <div class="columns">
+        <% unless article.archived? %>
+          <div class="column"><%= link_to article.title, article %></div>
+          <div class="column">
+            <%= article.comments.count %>&nbsp;<i class="fa fa-comments" aria-hidden="true">
+            </i> <%= article.comments.count == 1 ? "Comment" : "Comments"%>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="column is-10 is-offset-1">
-  <ul>
-    <% @articles.each do |article| %>
-      <li>
-        <%= link_to article.title, article %>
-      </li>
-    <% end %>
-  </ul>
   <div class="buttons mt-3">
     <%= link_to new_article_path, class: "button is-info is-light" do %>
       <i class="fa fa-file" aria-hidden="true"> </i>&nbsp;New Article

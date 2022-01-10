@@ -9,6 +9,11 @@
       <%= form.label :body, class: "label" %><br>
       <%= form.text_area :body, class: "textarea" %>
     </div>
+    <div class="field">
+      <div class="select">
+        <%= form.select :status, ['archived','private','public'], selected: 'public' %>
+      </div>
+    </div>
     <div class="field is-grouped">
       <div class="control">
         <%= button_tag type: 'submit', form:"new-comment", class: "button is-primary is-light", disable_with: 'Submiting...', id: "submit-comment-button" do %>

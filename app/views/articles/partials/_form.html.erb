@@ -13,6 +13,11 @@
       <div class="help is-danger"><%= message %></div>
     <% end %>
   </div>
+  <div class="field">
+    <div class="select">
+      <%= form.select :status, ['archived','private','public'], selected: 'public' %>
+    </div>
+  </div>
   <div class="field is-grouped">
     <div class="control">
       <%= button_tag type: 'submit', form:"edit-article", class: locals[:style], disable_with: 'Submiting...' do %>

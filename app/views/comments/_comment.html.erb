@@ -1,9 +1,17 @@
-<article class="message">
-  <div class="message-header">
-    <p>From: <%= comment.commenter%></p>
-    <%# <button class="delete" aria-label="delete"></button> %>
-  </div>
-  <div class="message-body">
-    <%= comment.body%>
-  </div>
-</article>
+<% unless comment.archived? %>
+  <article class="message">
+    <div class="message-header">
+      <p>From: <%= comment.commenter%></p>
+      <%= link_to [comment.article, comment], data: {
+          turbo_method: :delete,
+          turbo_confirm: "The Comment will be deleted. Are you sure?"
+          },
+          class: "delete" do %>
+        <button class="delete" aria-label="delete"></button>
+      <% end %>
+    </div>
+    <div class="message-body">
+      <%= comment.body%>
+    </div>
+  </article>
+<% end %>
